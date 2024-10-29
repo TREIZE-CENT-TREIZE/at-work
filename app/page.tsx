@@ -1,101 +1,217 @@
 import Image from "next/image";
+import Link from "next/link";
+import {
+  MapPinIcon,
+  VideoCameraIcon,
+  ArrowPathIcon,
+  TruckIcon,
+} from "@heroicons/react/24/outline";
+import { FaMap, FaImages, FaFileAlt, FaAddressBook } from "react-icons/fa";
 
-export default function Home() {
+const menuItems = [
+  {
+    title: "Film",
+    icon: VideoCameraIcon,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/film",
+    internal: true,
+  },
+  {
+    title: "Visite virtuelle",
+    icon: ArrowPathIcon,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/visite",
+    internal: true,
+  },
+  {
+    title: "Transports",
+    icon: TruckIcon,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/transports",
+    internal: true,
+  },
+  {
+    title: "Quartier",
+    icon: MapPinIcon,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/quartier",
+    internal: true,
+  },
+  {
+    title: "Immeuble",
+    icon: FaMap,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/immeuble",
+    internal: true,
+  },
+  {
+    title: "Galerie",
+    icon: FaImages,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/galerie",
+    internal: true,
+  },
+  {
+    title: "Brochure",
+    icon: FaFileAlt,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/brochure",
+    internal: true,
+  },
+  {
+    title: "Contacts",
+    icon: FaAddressBook,
+    bgColor: "bg-gray-100",
+    iconColor: "text-primary",
+    href: "/contacts",
+    internal: true,
+  },
+];
+
+const services = [
+  {
+    title: "Time Chef",
+    logo: "/time-chef-logo.svg",
+    bgColor: "bg-red-600",
+    textColor: "text-white",
+    href: "https://timechef.com",
+  },
+  {
+    title: "Uber Eats",
+    logo: "/uber-eats-logo.svg",
+    bgColor: "bg-red-600",
+    textColor: "text-white",
+    href: "https://ubereats.com",
+  },
+  {
+    title: "Frichti",
+    logo: "/frichti-logo.svg",
+    bgColor: "bg-red-600",
+    textColor: "text-white",
+    href: "https://frichti.com",
+  },
+  {
+    title: "Foodles",
+    logo: "/foodles-logo.svg",
+    bgColor: "bg-red-600",
+    textColor: "text-white",
+    href: "https://foodles.com",
+  },
+];
+
+type GridItemProps = {
+  children: React.ReactNode;
+  href: string;
+  external: boolean;
+  className: string;
+};
+
+const GridItem = ({ children, href, external, className }: GridItemProps) => {
+  const baseClasses =
+    "rounded-lg hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center aspect-square";
+  const combinedClasses = `${baseClasses} ${className}`;
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={combinedClasses}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <Link href={href} className={combinedClasses}>
+      {children}
+    </Link>
+  );
+};
+
+export default function Page() {
+  return (
+    <div className="min-h-screen transition-all duration-300 font-[family-name:var(--font-geist-sans)]">
+      <div className="mb-4 relative h-64 md:h-[300px] overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/bg-1.jpg"
+          alt="Building exterior"
+          fill
+          className="object-cover"
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+          {[...Array(4)].map((_, i) => (
+            <button
+              key={i}
+              className={`w-2 h-2 rounded-full ${
+                i === 0 ? "bg-white" : "bg-white/50"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          ))}
+        </div>
+      </div>
+
+      <main className="max-w-6xl mx-auto p-4 lg:pl-[15%]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+          {menuItems.map((item, index) => (
+            <GridItem
+              key={index}
+              href={item.href}
+              external={!item.internal}
+              className={`${item.bgColor} p-3 md:p-4`}
+            >
+              <div className="flex flex-col justify-between items-center h-full">
+                <div className="flex-1 flex items-center">
+                  <item.icon
+                    className={`w-8 h-8 md:w-10 md:h-10 ${item.iconColor}`}
+                  />
+                </div>
+                <span className="text-center text-xs md:text-sm font-medium mt-2">
+                  {item.title}
+                </span>
+              </div>
+            </GridItem>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+          {services.map((service, index) => (
+            <GridItem
+              key={index}
+              href={service.href}
+              external={true}
+              className={`${service.bgColor} ${service.textColor} p-3 md:p-4`}
+            >
+              <div className="flex flex-col justify-between items-center h-full">
+                <div className="flex-1 flex items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 relative">
+                    <Image
+                      src={service.logo}
+                      alt={service.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <span className="text-center text-xs md:text-sm font-medium mt-2">
+                  {service.title}
+                </span>
+              </div>
+            </GridItem>
+          ))}
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
