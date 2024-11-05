@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={inter.className}>
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen relative overflow-x-hidden">
           <Sidebar showOnMobile={showMobileSidebar} />
           <main className="flex-1 lg:ml-[20%]">{children}</main>
         </div>

@@ -5,15 +5,22 @@ import { MdOutlineGavel } from "react-icons/md";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { classNames } from "@/utils/classeNames";
 
 const navigation = [
-  { name: "Mentions légales", href: "#", icon: MdOutlineGavel, current: false },
-  { name: "Contacts", href: "#", icon: MdOutlineContactPhone, current: false },
+  {
+    name: "Mentions légales",
+    href: "mentions-legales",
+    icon: MdOutlineGavel,
+    current: false,
+  },
+  {
+    name: "Contacts",
+    href: "contacts",
+    icon: MdOutlineContactPhone,
+    current: false,
+  },
 ];
-
-function classNames(...classes: (string | boolean | undefined)[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function Sidebar({ showOnMobile }: { showOnMobile: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +70,7 @@ function SidebarContent() {
   return (
     <div className="flex flex-col h-full overflow-y-auto overflow-x-hidden">
       <div className="flex h-14 shrink-0 items-center bg-primary w-full"></div>
-      <div className="relative h-48">
+      <div className="relative h-48 border-b-2 drop-shadow-sm">
         <Image
           src="/left-menu-logo.png"
           fill
@@ -71,7 +78,7 @@ function SidebarContent() {
           className="object-cover"
         />
       </div>
-      <nav className="flex flex-1 flex-col pl-6 border-t-2 pt-4">
+      <nav className="flex flex-1 flex-col pl-6 pt-4">
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
           <li>
             <ul role="list" className="-mx-2 space-y-1">
@@ -80,18 +87,18 @@ function SidebarContent() {
                   <a
                     href={item.href}
                     className={classNames(
-                      "text-black hover:bg-indigo-700 hover:text-white font-light text-base",
-                      "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
+                      "text-black hover:bg-gray-100  font-light",
+                      "group flex gap-x-3 rounded-md p-2 text-base font-normal leading-6",
                     )}
                   >
                     <item.icon
                       aria-hidden="true"
                       className={classNames(
-                        "text-gray-600 group-hover:text-white",
+                        "text-gray-600 ",
                         "h-6 w-6 shrink-0",
                       )}
                     />
-                    <div className="flex justify-between w-full border-b-2">
+                    <div className="flex justify-between w-full border-b-2 pb-2">
                       <span>{item.name}</span>
                       <span>
                         <ChevronRightIcon className="w-4 h-4 mr-2" />
