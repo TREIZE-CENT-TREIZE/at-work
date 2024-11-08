@@ -16,10 +16,16 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
+      <head>
+        <title>@work</title>
+      </head>
       <body className={inter.className}>
-        <div className="flex min-h-screen relative overflow-x-hidden">
+        <div className="relative min-h-screen overflow-x-hidden">
           <Sidebar showOnMobile={showMobileSidebar} />
-          <main className="flex-1 lg:ml-[20%]">{children}</main>
+          <div className="lg:flex lg:flex-row">
+            <div className="lg:w-[300px] flex-shrink-0" />
+            <div className="flex-grow">{children}</div>
+          </div>
         </div>
       </body>
     </html>

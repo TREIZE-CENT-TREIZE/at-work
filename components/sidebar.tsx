@@ -59,7 +59,7 @@ export default function Sidebar({ showOnMobile }: { showOnMobile: boolean }) {
         <SidebarContent />
       </aside>
 
-      <aside className="hidden lg:block fixed top-0 left-0 z-40 w-[28%] h-screen bg-white border-r overflow-x-hidden">
+      <aside className="hidden lg:block fixed top-0 left-0 z-40 w-[300px] h-screen bg-white">
         <SidebarContent />
       </aside>
     </>
@@ -68,22 +68,23 @@ export default function Sidebar({ showOnMobile }: { showOnMobile: boolean }) {
 
 function SidebarContent() {
   return (
-    <div className="flex flex-col h-full overflow-y-auto overflow-x-hidden">
+    <div className="flex flex-col h-full overflow-y-auto overflow-x-hidden border-r-[1px]">
       <div className="flex h-14 shrink-0 items-center bg-primary w-full"></div>
-      <div className="relative h-48 border-b-2 drop-shadow-sm">
+      <div className="relative h-48 my-2">
         <Image
           src="/left-menu-logo.png"
           fill
           alt="logo"
           className="object-cover"
+          quality={100}
         />
       </div>
-      <nav className="flex flex-1 flex-col pl-6 pt-4">
+      <nav className="flex flex-1 flex-col pl-6 pt-4 border-t-2 drop-shadow-sm">
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
           <li>
             <ul role="list" className="-mx-2 space-y-1">
               {navigation.map((item) => (
-                <li key={item.name}>
+                <li className="border-b" key={item.name}>
                   <a
                     href={item.href}
                     className={classNames(
@@ -94,11 +95,11 @@ function SidebarContent() {
                     <item.icon
                       aria-hidden="true"
                       className={classNames(
-                        "text-gray-600 ",
+                        "text-gray-400 ",
                         "h-6 w-6 shrink-0",
                       )}
                     />
-                    <div className="flex justify-between w-full border-b-2 pb-2">
+                    <div className="flex justify-between w-full -2 pb-2 font-light">
                       <span>{item.name}</span>
                       <span>
                         <ChevronRightIcon className="w-4 h-4 mr-2" />

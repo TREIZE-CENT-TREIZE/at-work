@@ -69,7 +69,7 @@ const gridItems = [
     logo: "/time-chef.svg",
     bgColor: "bg-primary",
     textColor: "text-white",
-    href: "https://timechef.com",
+    href: "https://timechef.elior.com/#/login",
     internal: false,
   },
   {
@@ -85,7 +85,7 @@ const gridItems = [
     logo: "/frichti.svg",
     bgColor: "bg-primary",
     textColor: "text-white",
-    href: "https://frichti.com",
+    href: "https://www.frichti.co/landing",
     internal: false,
   },
   {
@@ -93,7 +93,7 @@ const gridItems = [
     logo: "/foodles.svg",
     bgColor: "bg-primary",
     textColor: "text-white",
-    href: "https://foodles.com",
+    href: "https://www.foodles.co",
     internal: false,
   },
   {
@@ -101,7 +101,7 @@ const gridItems = [
     logo: "/train-me.svg",
     bgColor: "bg-primary",
     textColor: "text-white",
-    href: "https://foodles.com",
+    href: "https://trainme.co/fr",
     internal: false,
   },
 ];
@@ -110,27 +110,28 @@ export default function Page() {
   return (
     <div className="min-h-screen transition-all duration-300 font-[family-name:var(--font-geist-sans)] max-w-full">
       <div>
-        <div className="absolute right-0 top-0">
+        <div className="relative">
           <CustomCarousel />
         </div>
-
-        <main className="container mx-auto px-4 lg:pl-24 xl:pl-36">
-          <div className="mt-[300px] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2 gap-x-2 md:gap-6 lg:gap-4">
+        <main className="mx-auto px-8 lg:px-[7%] pb-4">
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 gap-2">
             {gridItems.map((item, index) => (
               <GridItem
                 key={index}
                 href={item.href}
                 external={!item.internal}
-                className={`${item.bgColor} ${item.textColor || ""} p-4 w-full`}
+                className={`${item.bgColor} ${
+                  item.textColor || ""
+                } p-4 w-full h-56 md:h-64`}
               >
-                <div className="flex flex-col justify-between items-center h-full min-h-[200px]">
+                <div className="flex flex-col justify-between items-center h-full">
                   <div className="flex-1 flex items-center">
                     {item.icon ? (
                       <item.icon
-                        className={`w-8 h-8 md:w-10 md:h-10 ${item.iconColor}`}
+                        className={`w-28 h-28 md:w-20 md:h-20 ${item.iconColor}`}
                       />
                     ) : (
-                      <div className="w-12 h-12 md:w-16 md:h-16 relative">
+                      <div className="w-28 h-28 md:w-20 md:h-20 relative">
                         <Image
                           src={item.logo}
                           alt={item.title}
@@ -140,7 +141,7 @@ export default function Page() {
                       </div>
                     )}
                   </div>
-                  <span className="text-center text-xs md:text-sm font-medium mt-2">
+                  <span className="text-center text-base md:text-base font-normal mt-2">
                     {item.title}
                   </span>
                 </div>

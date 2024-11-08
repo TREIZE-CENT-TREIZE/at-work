@@ -3,14 +3,14 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="min-h-screen transition-all duration-300 font-[family-name:var(--font-geist-sans)]">
-      <div className="bg-primary h-14 text-white lg:pl-[12%] flex items-center gap-6 pl-3">
+    <div className="h-screen flex flex-col">
+      <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/">
           <GoArrowLeft className="w-6 h-6" />
         </Link>
         <h1 className="text-lg text-center">Mentions légales</h1>
       </div>
-      <main className="max-w-6xl mx-auto p-4 lg:pl-[15%] min-h-screen pb-10">
+      <main className="flex-1 overflow-auto p-4 text-sm pb-8">
         <div className="space-y-8">
           <div className="flex sm:justify-between gap-10 md:gap-2 ">
             <section className="w-1/2">

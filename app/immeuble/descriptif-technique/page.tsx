@@ -1,4 +1,3 @@
-"use client";
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import React from "react";
@@ -7,14 +6,14 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div className="min-h-screen transition-all duration-300 font-[family-name:var(--font-geist-sans)]">
-      <div className="bg-primary h-14 text-white lg:pl-[13%] flex items-center gap-6 pl-3">
+    <div className="h-screen flex flex-col">
+      <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/immeuble">
           <GoArrowLeft className="w-6 h-6" />
         </Link>
         <h1 className="text-lg text-center">Descriptif technique</h1>
       </div>
-      <main className="max-w-6xl mx-auto lg:pl-[12%] p-4">
+      <main className="flex-1 overflow-auto px-4 py-2">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col lg:flex-row items-stretch gap-8">
             <div className="flex flex-col gap-4 flex-1 order-2 lg:order-1">

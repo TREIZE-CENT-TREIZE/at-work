@@ -14,7 +14,7 @@ export const GridItem = ({
   className,
 }: GridItemProps) => {
   const baseClasses =
-    "rounded-lg hover:shadow-lg transition-shadow duration-300 flex flex-col items-center justify-center aspect-square";
+    "rounded-lg transition-shadow duration-300 flex flex-col items-center justify-center";
   const combinedClasses = `${baseClasses} ${className}`;
 
   if (external) {
@@ -31,7 +31,7 @@ export const GridItem = ({
   }
 
   return (
-    <Link href={href} className={combinedClasses}>
+    <Link href={href} className={combinedClasses} prefetch>
       {children}
     </Link>
   );

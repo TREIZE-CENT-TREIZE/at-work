@@ -1,4 +1,3 @@
-"use client";
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import React from "react";
@@ -25,24 +24,24 @@ const navigation = [
 
 export default function Page() {
   return (
-    <div className="min-h-screen transition-all duration-300 font-[family-name:var(--font-geist-sans)]">
-      <div className="bg-primary h-14 text-white lg:pl-[12%] flex items-center gap-6 pl-3">
+    <div className="h-screen flex flex-col">
+      <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/">
           <GoArrowLeft className="w-6 h-6" />
         </Link>
-        <h1 className="text-lg text-center">Immeuble</h1>
+        <h1 className="text-lg text-center">L&apos;immeuble</h1>
       </div>
-      <main className="max-w-6xl mx-auto lg:pl-[10%] min-h-screen">
+      <main className="flex-1 overflow-x-hidden">
         <div className="relative h-64 md:h-80 w-full">
           <Image className="object-cover" src="/top.jpg" fill alt="top" />
         </div>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 mt-4">
           <nav className="flex flex-1 flex-col pl-6 pt-4">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
-                    <li key={item.name}>
+                    <li className="border-b" key={item.name}>
                       <a
                         href={item.href}
                         className={classNames(
@@ -57,7 +56,7 @@ export default function Page() {
                             "h-6 w-6 shrink-0",
                           )}
                         />
-                        <div className="flex justify-between w-full border-b-2 pb-2">
+                        <div className="flex justify-between w-full ">
                           <span>{item.name}</span>
                           <span>
                             <ChevronRightIcon className="w-4 h-4 mr-2" />
