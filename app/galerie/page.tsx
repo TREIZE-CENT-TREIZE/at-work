@@ -1,5 +1,5 @@
 "use client";
-import { GoArrowLeft, GoX } from "react-icons/go";
+import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBuilding, FaMapMarkedAlt } from "react-icons/fa";
