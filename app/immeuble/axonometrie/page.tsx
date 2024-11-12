@@ -16,7 +16,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto h-full">
           <div className="h-full w-full">
             <iframe
-              src="/pdfjs/web/viewer.html?file=/axio.pdf#toolbar=0&navpanes=0"
+              src="/pdfjs/web/viewer.html?file=/axio.pdf#toolbar=0&navpanes=0&zoom=page-width"
               className="w-full h-full"
             />
           </div>

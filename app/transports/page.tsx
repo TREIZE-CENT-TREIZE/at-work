@@ -1,6 +1,5 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
-import Image from "next/image";
 import { PiTrain } from "react-icons/pi";
 
 const transportTimes = [
@@ -19,41 +18,40 @@ export default function Page() {
         </Link>
         <h1 className="text-lg text-center">Transports</h1>
       </div>
-      <main className="flex-1 overflow-auto px-4 py-2">
+      <main className="flex-1 overflow-auto">
         <div className="space-y-8">
-          <div className="w-full relative">
-            <Image
-              src="/transports-1.png"
-              width={1000}
-              height={1000}
-              alt="transports"
-              quality={100}
+          <div className="w-full aspect-video">
+            <iframe
+              src="/pdfjs/web/viewer.html?file=/transports-1.pdf#toolbar=0&navpanes=0&zoom=page-width"
+              className="w-full h-full border-none"
             />
           </div>
 
-          <div className=" p-4 rounded-lg">
-            <h2 className="text-lg font-normal mb-4 flex items-center gap-2 bg-gray-100 p-1">
-              <PiTrain className="w-6 h-6 text-primary" />
-              <p className="break-words">
-                <span>TEMPS DE TRANSPORT </span>
-                <span className="font-bold">AUJOURD&apos;HUI</span>
-              </p>
-            </h2>
-            <div className="space-y-3">
-              {transportTimes.map((transport, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center border-b pb-1 text-gray-500"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold">{transport.line}</span>
-                    <span>{transport.station}</span>
+          <div className="px-4">
+            <div className="p-4 rounded-lg">
+              <h2 className="text-lg font-normal mb-4 flex items-center gap-2 bg-gray-100 p-1">
+                <PiTrain className="w-6 h-6 text-primary" />
+                <p className="break-words">
+                  <span>TEMPS DE TRANSPORT </span>
+                  <span className="font-bold">AUJOURD&apos;HUI</span>
+                </p>
+              </h2>
+              <div className="space-y-3">
+                {transportTimes.map((transport, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between items-center border-b pb-1 text-gray-500"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold">{transport.line}</span>
+                      <span>{transport.station}</span>
+                    </div>
+                    <span>{transport.time}</span>
                   </div>
-                  <span>{transport.time}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+              <p className="text-sm text-gray-500 mt-4 italic">Source : RATP</p>
             </div>
-            <p className="text-sm text-gray-500 mt-4 italic">Source : RATP</p>
           </div>
         </div>
       </main>

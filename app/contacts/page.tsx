@@ -68,11 +68,7 @@ export default function Page() {
               key={index}
               className="flex md:gap-6 md:items-center flex-col gap-1 items-baseline md:flex-row"
             >
-              <div
-                className={`w-40 h-${
-                  contact.logo ? "40" : "20"
-                } relative flex-shrink-0`}
-              >
+              <div className={`w-40 h-40 relative flex-shrink-0`}>
                 {contact.logo && (
                   <Image
                     src={contact.logo}

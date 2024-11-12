@@ -11,10 +11,10 @@ export default function Page() {
         <h1 className="text-lg text-center">Quartier</h1>
       </div>
       <main className="flex-1 overflow-auto">
-        <div className="max-w-6xl mx-auto h-full">
+        <div className="mx-auto h-full">
           <div className="h-full w-full">
             <iframe
-              src="/pdfjs/web/viewer.html?file=/quartier.pdf#toolbar=0&navpanes=0"
+              src="/pdfjs/web/viewer.html?file=/quartier.pdf#toolbar=0&navpanes=0&zoom=page-width"
               className="w-full h-full"
             />
           </div>

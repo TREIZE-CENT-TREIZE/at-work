@@ -12,45 +12,82 @@ import { Pagination, Navigation } from "swiper/modules";
 import { LuGrid } from "react-icons/lu";
 import { MdFullscreen } from "react-icons/md";
 
+import immeuble1 from "@/public/immeuble-1.jpg";
+import immeuble2 from "@/public/immeuble-2.jpg";
+import immeuble3 from "@/public/immeuble-3.jpg";
+import immeuble4 from "@/public/immeuble-4.jpg";
+import immeuble5 from "@/public/immeuble-5.jpg";
+import immeuble6 from "@/public/immeuble-6.jpg";
+import immeuble7 from "@/public/immeuble-7.jpg";
+import immeuble8 from "@/public/immeuble-8.jpg";
+import immeuble9 from "@/public/immeuble-9.jpg";
+import immeuble10 from "@/public/immeuble-10.jpg";
+import immeuble11 from "@/public/immeuble-11.jpg";
+import immeuble12 from "@/public/immeuble-12.jpg";
+
+import quartier1 from "@/public/quartier-1.jpg";
+import quartier2 from "@/public/quartier-2.jpg";
+import quartier3 from "@/public/quartier-3.jpg";
+import quartier4 from "@/public/quartier-4.jpg";
+import quartier5 from "@/public/quartier-5.jpg";
+import quartier6 from "@/public/quartier-6.jpg";
+import quartier7 from "@/public/quartier-7.jpg";
+import quartier8 from "@/public/quartier-8.jpg";
+import quartier9 from "@/public/quartier-9.jpg";
+import quartier10 from "@/public/quartier-10.jpg";
+import quartier11 from "@/public/quartier-11.jpg";
+import quartier12 from "@/public/quartier-12.jpg";
+import quartier13 from "@/public/quartier-13.jpg";
+import quartier14 from "@/public/quartier-14.jpg";
+import quartier15 from "@/public/quartier-15.jpg";
+import quartier16 from "@/public/quartier-16.jpg";
+import quartier17 from "@/public/quartier-17.jpg";
+import quartier18 from "@/public/quartier-18.jpg";
+import quartier19 from "@/public/quartier-19.jpg";
+import quartier20 from "@/public/quartier-20.jpg";
+import quartier21 from "@/public/quartier-21.jpg";
+import quartier22 from "@/public/quartier-22.jpg";
+import quartier23 from "@/public/quartier-23.jpg";
+
 const buildingImages = [
-  { src: "/immeuble-1.jpg", alt: "Balconies with plants" },
-  { src: "/immeuble-2.jpg", alt: "Garden entrance" },
-  { src: "/immeuble-3.jpg", alt: "Building exterior" },
-  { src: "/immeuble-4.jpg", alt: "Outdoor seating area" },
-  { src: "/immeuble-5.jpg", alt: "Reception area" },
-  { src: "/immeuble-6.jpg", alt: "Interior lobby" },
-  { src: "/immeuble-7.jpg", alt: "Building facade" },
-  { src: "/immeuble-8.jpg", alt: "Building entrance" },
-  { src: "/immeuble-9.jpg", alt: "Building exterior view" },
-  { src: "/immeuble-10.jpg", alt: "Working space" },
-  { src: "/immeuble-11.jpg", alt: "Office space" },
-  { src: "/immeuble-12.jpg", alt: "Open workspace" },
+  { src: immeuble1, alt: "Balconies with plants" },
+  { src: immeuble2, alt: "Garden entrance" },
+  { src: immeuble3, alt: "Building exterior" },
+  { src: immeuble4, alt: "Outdoor seating area" },
+  { src: immeuble5, alt: "Reception area" },
+  { src: immeuble6, alt: "Interior lobby" },
+  { src: immeuble7, alt: "Building facade" },
+  { src: immeuble8, alt: "Building entrance" },
+  { src: immeuble9, alt: "Building exterior view" },
+  { src: immeuble10, alt: "Working space" },
+  { src: immeuble11, alt: "Office space" },
+  { src: immeuble12, alt: "Open workspace" },
 ];
 
 const surroundingsImages = [
-  { src: "/quartier-1.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-2.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-3.jpg", alt: "Neighborhood view 3" },
-  { src: "/quartier-4.jpg", alt: "Neighborhood view 4" },
-  { src: "/quartier-5.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-6.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-7.jpg", alt: "Neighborhood view 3" },
-  { src: "/quartier-8.jpg", alt: "Neighborhood view 4" },
-  { src: "/quartier-9.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-10.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-11.jpg", alt: "Neighborhood view 3" },
-  { src: "/quartier-12.jpg", alt: "Neighborhood view 4" },
-  { src: "/quartier-13.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-14.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-15.jpg", alt: "Neighborhood view 3" },
-  { src: "/quartier-16.jpg", alt: "Neighborhood view 4" },
-  { src: "/quartier-17.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-18.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-19.jpg", alt: "Neighborhood view 3" },
-  { src: "/quartier-20.jpg", alt: "Neighborhood view 4" },
-  { src: "/quartier-21.jpg", alt: "Neighborhood view 1" },
-  { src: "/quartier-22.jpg", alt: "Neighborhood view 2" },
-  { src: "/quartier-23.jpg", alt: "Neighborhood view 3" },
+  { src: quartier1, alt: "Neighborhood view 1" },
+  { src: quartier2, alt: "Neighborhood view 2" },
+  { src: quartier3, alt: "Neighborhood view 3" },
+  { src: quartier4, alt: "Neighborhood view 4" },
+  { src: quartier5, alt: "Neighborhood view 5" },
+  { src: quartier6, alt: "Neighborhood view 6" },
+  { src: quartier7, alt: "Neighborhood view 7" },
+  { src: quartier8, alt: "Neighborhood view 8" },
+  { src: quartier9, alt: "Neighborhood view 9" },
+  { src: quartier10, alt: "Neighborhood view 10" },
+  { src: quartier11, alt: "Neighborhood view 11" },
+  { src: quartier12, alt: "Neighborhood view 12" },
+  { src: quartier13, alt: "Neighborhood view 13" },
+  { src: quartier14, alt: "Neighborhood view 14" },
+  { src: quartier15, alt: "Neighborhood view 15" },
+  { src: quartier16, alt: "Neighborhood view 16" },
+  { src: quartier17, alt: "Neighborhood view 17" },
+  { src: quartier18, alt: "Neighborhood view 18" },
+  { src: quartier19, alt: "Neighborhood view 19" },
+  { src: quartier20, alt: "Neighborhood view 20" },
+  { src: quartier21, alt: "Neighborhood view 21" },
+  { src: quartier22, alt: "Neighborhood view 22" },
+  { src: quartier23, alt: "Neighborhood view 23" },
 ];
 
 export default function Page() {
@@ -65,7 +102,7 @@ export default function Page() {
   const openCarousel = (index: number) => {
     setStartSlide(index);
     setShowCarousel(true);
-    setIsZoomed(false); // Reset zoom when opening new image
+    setIsZoomed(false);
   };
 
   const toggleZoom = () => {
@@ -92,6 +129,7 @@ export default function Page() {
                 src={image.src}
                 alt={image.alt}
                 fill
+                placeholder="blur"
                 className="object-cover rounded-lg transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 rounded-lg" />
@@ -142,7 +180,6 @@ export default function Page() {
         </div>
       </main>
 
-      {/* Fullscreen Carousel Modal */}
       {showCarousel && (
         <div className="fixed inset-0 bg-black z-50">
           <div className="absolute top-4 left-4 right-4 z-50 flex items-center justify-between">

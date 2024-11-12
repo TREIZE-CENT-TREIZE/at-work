@@ -23,16 +23,26 @@ const CustomCarousel = () => {
         slidesPerView={1}
         style={
           {
-            "--swiper-pagination-color": "white",
-            "--swiper-pagination-bullet-inactive-color": "#999999",
-            "--swiper-pagination-bullet-inactive-opacity": "0.5",
+            "--swiper-theme-color": "white",
+            "--swiper-pagination-bullet-size": "12px",
+            "--swiper-pagination-bullet-width": "12px",
+            "--swiper-pagination-bullet-height": "12px",
+            "--swiper-pagination-bullet-inactive-color": "transparent",
+            "--swiper-pagination-bullet-inactive-opacity": "1",
+            "--swiper-pagination-bullet-opacity": "1",
+            "--swiper-pagination-bullet-horizontal-gap": "6px",
+            "--swiper-pagination-bullet-border": "2px solid white",
+            "--swiper-pagination-bullet-active-color": "white",
             "--swiper-navigation-color": "#DC2626",
-            "--swiper-navigation-size": "24px",
+            "--swiper-navigation-size": "18px",
             "--swiper-navigation-sides-offset": "20px",
             "--swiper-navigation-top-offset": "50%",
-            "--swiper-navigation-background-color": "white",
-            "--swiper-navigation-border-radius": "50%",
-            "--swiper-navigation-padding": "20px",
+            "--swiper-navigation-background": "white",
+            "--swiper-navigation-box-shadow":
+              "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            "--swiper-navigation-button-width": "40px",
+            "--swiper-navigation-button-height": "40px",
+            "--swiper-navigation-button-border-radius": "50%",
           } as React.CSSProperties
         }
         loop={true}
@@ -82,6 +92,29 @@ const CustomCarousel = () => {
           </div>
         </SwiperSlide>
       </Swiper>
+
+      <style>
+        {`
+          .swiper-pagination-bullet {
+            border: 2px solid white !important;
+            background: transparent !important;
+          }
+          .swiper-pagination-bullet-active {
+            background: white !important;
+          }
+          .swiper-button-prev, .swiper-button-next {
+            width: 40px !important;
+            height: 40px !important;
+            background: white !important;
+            border-radius: 50% !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+          }
+          .swiper-button-prev:after, .swiper-button-next:after {
+            font-size: 18px !important;
+            color: #DC2626;
+          }
+        `}
+      </style>
     </div>
   );
 };

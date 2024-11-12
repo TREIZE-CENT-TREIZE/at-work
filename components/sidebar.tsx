@@ -99,7 +99,7 @@ function SidebarContent() {
                         "h-6 w-6 shrink-0",
                       )}
                     />
-                    <div className="flex justify-between w-full -2 pb-2 font-light">
+                    <div className="flex justify-between items-center w-full -2 pb-2 font-light">
                       <span>{item.name}</span>
                       <span>
                         <ChevronRightIcon className="w-4 h-4 mr-2" />

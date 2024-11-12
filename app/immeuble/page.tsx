@@ -36,10 +36,10 @@ export default function Page() {
           <Image className="object-cover" src="/top.jpg" fill alt="top" />
         </div>
         <div className="flex flex-col gap-8 mt-4">
-          <nav className="flex flex-1 flex-col pl-6 pt-4">
+          <nav className="flex flex-1 flex-col pl-2 pt-4">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
-                <ul role="list" className="-mx-2 space-y-1">
+                <ul role="list" className="space-y-1">
                   {navigation.map((item) => (
                     <li className="border-b" key={item.name}>
                       <a
