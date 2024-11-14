@@ -1,9 +1,7 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import Image from "next/image";
-import { HiPhone, HiMail } from "react-icons/hi";
-import { FaFireExtinguisher, FaRegHospital } from "react-icons/fa";
-import { MdLocalPolice } from "react-icons/md";
+import { HiPhone } from "react-icons/hi";
 
 const contacts = [
   {
@@ -37,17 +35,17 @@ const contacts = [
 const urgencies = [
   {
     name: "Pompiers",
-    icon: FaFireExtinguisher,
+    icon: "/icons/pompiers.svg",
     phone: "18",
   },
   {
     name: "Police",
-    icon: MdLocalPolice,
+    icon: "/icons/police.svg",
     phone: "17",
   },
   {
     name: "SAMU",
-    icon: FaRegHospital,
+    icon: "/icons/samu.svg",
     phone: "15",
   },
 ];
@@ -57,7 +55,7 @@ export default function Page() {
     <div className="h-screen flex flex-col">
       <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/">
-          <GoArrowLeft className="w-6 h-6" />
+          <GoArrowLeft className="w-10 h-10 hover:bg-slate-100/20 rounded-full p-2" />
         </Link>
         <h1 className="text-lg text-center">Contacts</h1>
       </div>
@@ -68,7 +66,7 @@ export default function Page() {
               key={index}
               className="flex md:gap-6 md:items-center flex-col gap-1 items-baseline md:flex-row"
             >
-              <div className={`w-40 h-40 relative flex-shrink-0`}>
+              <div className={`w-44 h-44 relative flex-shrink-0`}>
                 {contact.logo && (
                   <Image
                     src={contact.logo}
@@ -78,7 +76,7 @@ export default function Page() {
                   />
                 )}
               </div>
-              <div className="flex-1">
+              <div className="flex-1 md:mt-5">
                 {contact.name && (
                   <h2 className="bg-primary text-white px-3 py-1 inline-block mb-4">
                     {contact.name}
@@ -88,18 +86,33 @@ export default function Page() {
                   {contact.phone && (
                     <a
                       href={`tel:${contact.phone}`}
-                      className="flex items-center gap-2 hover:text-primary"
+                      className="flex items-center gap-2"
                     >
-                      <HiPhone className="w-5 h-5" />
+                      <div className="w-6 h-6 relative">
+                        <Image
+                          alt="phone"
+                          fill
+                          className="object-contain"
+                          src="/icons/phone.svg"
+                        />
+                      </div>
+
                       <span>{contact.phone}</span>
                     </a>
                   )}
                   {contact.email && (
                     <a
                       href={`mailto:${contact.email}`}
-                      className="flex items-center gap-2 hover:text-primary"
+                      className="flex items-center gap-2  border-t pt-2"
                     >
-                      <HiMail className="w-5 h-5" />
+                      <div className="w-6 h-6 relative">
+                        <Image
+                          alt="mail"
+                          fill
+                          className="object-contain"
+                          src="/icons/mail.svg"
+                        />
+                      </div>
                       <span>{contact.email}</span>
                     </a>
                   )}
@@ -108,18 +121,25 @@ export default function Page() {
             </div>
           ))}
 
-          <div className="pt-8 border-t">
+          <div className="pt-8">
             <h2 className="text-base font-light mb-6">Urgences</h2>
             <div className="space-y-4">
               {urgencies.map((urgency, index) => (
                 <a
                   key={index}
                   href={`tel:${urgency.phone}`}
-                  className="flex items-center justify-between gap-3 hover:text-primary border-b pb-3"
+                  className="flex items-center justify-between gap-3  border-b pb-3"
                 >
-                  <span className="flex items-baseline gap-4">
+                  <span className="flex items-center gap-4">
                     <span>
-                      <urgency.icon className="w-6 h-6 text-primary inline" />
+                      <div className="w-6 h-6 text-primary relative">
+                        <Image
+                          src={urgency.icon}
+                          alt={urgency.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </span>
                     {urgency.name}
                   </span>

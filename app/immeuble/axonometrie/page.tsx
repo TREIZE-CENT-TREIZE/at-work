@@ -7,7 +7,7 @@ export default function Page() {
     <div className="h-screen flex flex-col">
       <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/immeuble">
-          <GoArrowLeft className="w-6 h-6" />
+          <GoArrowLeft className="w-10 h-10 hover:bg-slate-100/20 rounded-full p-2" />
         </Link>
         <h1 className="text-lg text-center">Axonométrie</h1>
       </div>

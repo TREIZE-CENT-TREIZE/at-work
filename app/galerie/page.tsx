@@ -2,7 +2,6 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import Image from "next/image";
-import { FaBuilding, FaMapMarkedAlt } from "react-icons/fa";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -48,6 +47,8 @@ import quartier20 from "@/public/quartier-20.jpg";
 import quartier21 from "@/public/quartier-21.jpg";
 import quartier22 from "@/public/quartier-22.jpg";
 import quartier23 from "@/public/quartier-23.jpg";
+import Quartiericon from "@/components/icons/quartiericon";
+import ImmeubleIcon from "@/components/icons/immeubleIcon";
 
 const buildingImages = [
   { src: immeuble1, alt: "Balconies with plants" },
@@ -110,14 +111,58 @@ export default function Page() {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col pb-8">
       <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/">
-          <GoArrowLeft className="w-6 h-6" />
+          <GoArrowLeft className="w-10 h-10 hover:bg-slate-100/20 rounded-full p-2" />
         </Link>
         <h1 className="text-lg text-center">Galerie</h1>
       </div>
-      <main className="flex-1 overflow-auto mt-4 mb-24 px-2">
+
+      <div className="h-20 bg-[#E6E6E6] flex items-center justify-center">
+        <div className="flex items-center justify-center gap-16 ">
+          <button
+            onClick={() => setMode("building")}
+            className={`flex flex-col items-center justify-center border-gray-300 hover:bg-gray-200 transition-colors ${
+              mode === "building" ? "bg-gray-200" : ""
+            }`}
+          >
+            <ImmeubleIcon
+              className={`w-6 h-6 ${
+                mode === "building" ? "text-primary" : "text-gray-600"
+              }`}
+            />
+            <span
+              className={`text-sm font-medium mt-1 ${
+                mode === "building" ? "text-primary" : "text-gray-600"
+              }`}
+            >
+              Immeuble
+            </span>
+          </button>
+          <button
+            onClick={() => setMode("surroundings")}
+            className={`flex flex-col items-center justify-center hover:bg-gray-200 transition-colors ${
+              mode === "surroundings" ? "bg-gray-200" : ""
+            }`}
+          >
+            <Quartiericon
+              className={`w-6 h-6 ${
+                mode === "surroundings" ? "text-primary" : "text-gray-600"
+              }`}
+            />
+            <span
+              className={`text-sm font-medium mt-1 ${
+                mode === "surroundings" ? "text-primary" : "text-gray-600"
+              }`}
+            >
+              Quartier
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <main className="flex-1 overflow-auto mt-4 px-2">
         <div className="grid grid-cols-3 md:grid-cols-4 gap-2">
           {currentImages.map((image, index) => (
             <div
@@ -135,48 +180,6 @@ export default function Page() {
               <div className="absolute inset-0 bg-black bg-opacity-0 transition-opacity duration-300 rounded-lg" />
             </div>
           ))}
-        </div>
-        <div className="fixed bottom-0 w-full right-0 h-20 bg-[#E6E6E6] flex items-center justify-center">
-          <div className="flex items-center justify-center gap-16 lg:ml-[20%]">
-            <button
-              onClick={() => setMode("building")}
-              className={`flex flex-col items-center justify-center border-gray-300 hover:bg-gray-200 transition-colors ${
-                mode === "building" ? "bg-gray-200" : ""
-              }`}
-            >
-              <FaBuilding
-                className={`w-6 h-6 ${
-                  mode === "building" ? "text-primary" : "text-gray-600"
-                }`}
-              />
-              <span
-                className={`text-sm font-medium mt-1 ${
-                  mode === "building" ? "text-primary" : "text-gray-600"
-                }`}
-              >
-                Immeuble
-              </span>
-            </button>
-            <button
-              onClick={() => setMode("surroundings")}
-              className={`flex flex-col items-center justify-center hover:bg-gray-200 transition-colors ${
-                mode === "surroundings" ? "bg-gray-200" : ""
-              }`}
-            >
-              <FaMapMarkedAlt
-                className={`w-6 h-6 ${
-                  mode === "surroundings" ? "text-primary" : "text-gray-600"
-                }`}
-              />
-              <span
-                className={`text-sm font-medium mt-1 ${
-                  mode === "surroundings" ? "text-primary" : "text-gray-600"
-                }`}
-              >
-                Quartier
-              </span>
-            </button>
-          </div>
         </div>
       </main>
 

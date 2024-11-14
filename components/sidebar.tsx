@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
-import { MdOutlineGavel } from "react-icons/md";
-import { MdOutlineContactPhone } from "react-icons/md";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { classNames } from "@/utils/classeNames";
@@ -11,13 +9,13 @@ const navigation = [
   {
     name: "Mentions légales",
     href: "mentions-legales",
-    icon: MdOutlineGavel,
+    logo: "/icons/mentions.svg",
     current: false,
   },
   {
     name: "Contacts",
     href: "contacts",
-    icon: MdOutlineContactPhone,
+    logo: "/icons/side-contacts.svg",
     current: false,
   },
 ];
@@ -69,41 +67,45 @@ export default function Sidebar({ showOnMobile }: { showOnMobile: boolean }) {
 function SidebarContent() {
   return (
     <div className="flex flex-col h-full overflow-y-auto overflow-x-hidden border-r-[1px]">
-      <div className="flex h-14 shrink-0 items-center bg-primary w-full"></div>
+      <div className="flex h-14 shrink-0 items-center bg-primary w-full" />
+
       <div className="relative h-48 my-2">
         <Image
           src="/left-menu-logo.png"
           fill
           alt="logo"
-          className="object-cover"
+          className="object-contain"
           quality={100}
         />
       </div>
-      <nav className="flex flex-1 flex-col pl-6 pt-4 border-t-2 drop-shadow-sm">
+
+      <nav className="flex flex-1 flex-col pt-4 border-t-2 drop-shadow-sm">
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
           <li>
-            <ul role="list" className="-mx-2 space-y-1">
+            <ul role="list" className="-mx-2">
               {navigation.map((item) => (
-                <li className="border-b" key={item.name}>
+                <li className="hover:bg-gray-100 pl-4 relative" key={item.name}>
                   <a
                     href={item.href}
                     className={classNames(
-                      "text-black hover:bg-gray-100  font-light",
+                      "text-black  font-light",
                       "group flex gap-x-3 rounded-md p-2 text-base font-normal leading-6",
                     )}
                   >
-                    <item.icon
-                      aria-hidden="true"
-                      className={classNames(
-                        "text-gray-400 ",
-                        "h-6 w-6 shrink-0",
-                      )}
-                    />
-                    <div className="flex justify-between items-center w-full -2 pb-2 font-light">
+                    <div className="relative w-7 h-7">
+                      <Image
+                        src={item.logo}
+                        alt={item.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                    <div className="flex justify-between items-center w-full  ml-4 font-light ">
                       <span>{item.name}</span>
                       <span>
-                        <ChevronRightIcon className="w-4 h-4 mr-2" />
+                        <ChevronRightIcon className="w-5 h-5 mr-4 text-[#808080]" />
                       </span>
+                      <div className="absolute bottom-0 left-20 right-0 border-b" />
                     </div>
                   </a>
                 </li>

@@ -1,16 +1,11 @@
 import Image from "next/image";
-import { MapPinIcon, VideoCameraIcon } from "@heroicons/react/24/outline";
-import { PiTrain, PiImagesLight } from "react-icons/pi";
-import { FaRegMap } from "react-icons/fa";
-import { FaRegAddressBook } from "react-icons/fa6";
-import { LuClipboardList } from "react-icons/lu";
 import CustomCarousel from "@/components/customCarousel";
 import { GridItem } from "@/components/gridItem";
 
 const gridItems = [
   {
     title: "Film",
-    icon: VideoCameraIcon,
+    logo: "/icons/film.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/film",
@@ -18,7 +13,7 @@ const gridItems = [
   },
   {
     title: "Transports",
-    icon: PiTrain,
+    logo: "/icons/transports.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/transports",
@@ -26,7 +21,7 @@ const gridItems = [
   },
   {
     title: "Quartier",
-    icon: MapPinIcon,
+    logo: "/icons/quartier.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/quartier",
@@ -34,7 +29,7 @@ const gridItems = [
   },
   {
     title: "Immeuble",
-    icon: FaRegMap,
+    logo: "/icons/immeuble.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/immeuble",
@@ -42,7 +37,7 @@ const gridItems = [
   },
   {
     title: "Galerie",
-    icon: PiImagesLight,
+    logo: "/icons/galerie.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/galerie",
@@ -50,7 +45,7 @@ const gridItems = [
   },
   {
     title: "Brochure",
-    icon: LuClipboardList,
+    logo: "/icons/brochure.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/brochure",
@@ -58,7 +53,7 @@ const gridItems = [
   },
   {
     title: "Contacts",
-    icon: FaRegAddressBook,
+    logo: "/icons/contacts.svg",
     bgColor: "bg-[#E5E5E5]",
     iconColor: "text-primary",
     href: "/contacts",
@@ -126,20 +121,14 @@ export default function Page() {
               >
                 <div className="flex flex-col justify-between items-center h-full">
                   <div className="flex-1 flex items-center">
-                    {item.icon ? (
-                      <item.icon
-                        className={`w-28 h-28 md:w-20 md:h-20 ${item.iconColor}`}
+                    <div className="w-24 h-24 sm:w-28 md:h-28 relative">
+                      <Image
+                        src={item.logo}
+                        alt={item.title}
+                        fill
+                        className="object-contain"
                       />
-                    ) : (
-                      <div className="w-28 h-28 md:w-20 md:h-20 relative">
-                        <Image
-                          src={item.logo}
-                          alt={item.title}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    )}
+                    </div>
                   </div>
                   <span className="text-center text-base md:text-base font-normal mt-2">
                     {item.title}
