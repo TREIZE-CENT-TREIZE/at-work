@@ -31,7 +31,7 @@ export default function Page() {
       </div>
       <main className="flex-1 overflow-x-hidden">
         <div className="relative h-64 md:h-80 w-full">
-          <Image className="object-cover" src="/top.jpg" fill alt="top" />
+          <Image className="object-cover" src="/top.png" fill alt="top" />
         </div>
         <div className="flex flex-col gap-8 mt-4">
           <nav className="flex flex-1 flex-col pt-4 ">

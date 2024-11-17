@@ -1,6 +1,7 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -12,12 +13,14 @@ export default function Page() {
         <h1 className="text-lg text-center">Axonométrie</h1>
       </div>
 
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto overflow-x-hidden">
         <div className="max-w-6xl mx-auto h-full">
-          <div className="h-full w-full">
-            <iframe
-              src="/pdfjs/web/viewer.html?file=/axio.pdf#toolbar=0&navpanes=0&zoom=page-width"
-              className="w-full h-full"
+          <div className="w-full aspect-video relative mt-10">
+            <Image
+              src="/axio.svg"
+              alt="transport plan"
+              fill
+              className="object-contain scale-125"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import { PiTrain } from "react-icons/pi";
+import Image from "next/image";
 
 const transportTimes = [
   { line: "M13", station: "Gare Saint-Lazare", time: "13'" },
@@ -11,23 +12,25 @@ const transportTimes = [
 
 export default function Page() {
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col ">
       <div className="bg-primary h-14 text-white flex items-center gap-6 pl-3 z-10 flex-shrink-0">
         <Link href="/">
           <GoArrowLeft className="w-10 h-10 hover:bg-slate-100/20 rounded-full p-2" />
         </Link>
         <h1 className="text-lg text-center">Transports</h1>
       </div>
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto overflow-x-hidden">
         <div className="space-y-8">
-          <div className="w-full aspect-video">
-            <iframe
-              src="/pdfjs/web/viewer.html?file=/transports-1.pdf#toolbar=0&navpanes=0&zoom=page-width"
-              className="w-full h-full border-none"
+          <div className="w-full aspect-video relative mt-10">
+            <Image
+              src="/transports-1.svg"
+              alt="transport plan"
+              fill
+              className="object-contain scale-125"
             />
           </div>
 
-          <div className="px-4">
+          <div className="px-4 mt-10">
             <div className="p-4 rounded-lg">
               <h2 className="text-lg font-normal mb-4 flex items-center gap-2 bg-gray-100 p-1">
                 <PiTrain className="w-6 h-6 text-primary" />

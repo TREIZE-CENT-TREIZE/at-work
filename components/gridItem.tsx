@@ -31,7 +31,7 @@ export const GridItem = ({
   }
 
   return (
-    <Link href={href} className={combinedClasses} prefetch>
+    <Link href={href} className={combinedClasses} prefetch={true}>
       {children}
     </Link>
   );

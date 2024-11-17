@@ -5,28 +5,15 @@ import { HiPhone } from "react-icons/hi";
 
 const contacts = [
   {
-    name: "MICKAEL ABECASSIS",
-    company: "CBRE",
     logo: "/cbre.png",
-    phone: "01 53 64 37 58",
-    email: "mickael.abecassis@cbre.fr",
+    phone: "01 53 64 30 48",
   },
   {
-    name: "ABDOU SARR",
-    company: "JLL",
     logo: "/jll.png",
-    phone: "01 40 55 18 80",
-    email: "abdou.sarr@eu.jll.com",
+    phone: "06 98 06 88 63",
   },
+
   {
-    name: "PEROLINE PREVOST",
-    company: "JLL",
-    logo: "/jll.png",
-    phone: "01 53 75 86 26",
-    email: "peroline.prevostmanseau@eu.jll.com",
-  },
-  {
-    name: "",
     logo: "/evolis.svg",
     phone: "01 81 72 00 00",
   },
@@ -70,53 +57,29 @@ export default function Page() {
                 {contact.logo && (
                   <Image
                     src={contact.logo}
-                    alt={`${contact.company} Logo`}
+                    alt="Company Logo"
                     fill
                     className="object-contain"
                   />
                 )}
               </div>
-              <div className="flex-1 md:mt-5">
-                {contact.name && (
-                  <h2 className="bg-primary text-white px-3 py-1 inline-block mb-4">
-                    {contact.name}
-                  </h2>
+              <div className="flex-1 md:mt-2">
+                {contact.phone && (
+                  <a
+                    href={`tel:${contact.phone}`}
+                    className="flex items-center gap-2"
+                  >
+                    <div className="w-6 h-6 relative">
+                      <Image
+                        alt="phone"
+                        fill
+                        className="object-contain"
+                        src="/icons/phone.svg"
+                      />
+                    </div>
+                    <span>{contact.phone}</span>
+                  </a>
                 )}
-                <div className="space-y-2">
-                  {contact.phone && (
-                    <a
-                      href={`tel:${contact.phone}`}
-                      className="flex items-center gap-2"
-                    >
-                      <div className="w-6 h-6 relative">
-                        <Image
-                          alt="phone"
-                          fill
-                          className="object-contain"
-                          src="/icons/phone.svg"
-                        />
-                      </div>
-
-                      <span>{contact.phone}</span>
-                    </a>
-                  )}
-                  {contact.email && (
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="flex items-center gap-2  border-t pt-2"
-                    >
-                      <div className="w-6 h-6 relative">
-                        <Image
-                          alt="mail"
-                          fill
-                          className="object-contain"
-                          src="/icons/mail.svg"
-                        />
-                      </div>
-                      <span>{contact.email}</span>
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           ))}

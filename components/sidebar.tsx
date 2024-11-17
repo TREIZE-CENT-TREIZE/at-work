@@ -71,7 +71,7 @@ function SidebarContent() {
 
       <div className="relative h-48 my-2">
         <Image
-          src="/left-menu-logo.png"
+          src="/at-work.svg"
           fill
           alt="logo"
           className="object-contain"
