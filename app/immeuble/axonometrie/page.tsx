@@ -1,7 +1,17 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+import { ZoomableImage } from "@/components/zoomableImage";
+import { StatItem } from "@/components/statItem";
+
+const stats = [
+  { value: "1ER", label: "hub\ndu Grand Paris" },
+  { value: "1", label: "écoQuartier" },
+  { value: "500 M2", label: "de jardin" },
+  { value: "150 M2", label: "de balcons\net terrasses" },
+  { value: "45 %", label: "déjà loués" },
+  { value: "2,90 M", label: "de hauteur\nsous plafond" },
+];
 
 export default function Page() {
   return (
@@ -14,14 +24,22 @@ export default function Page() {
       </div>
 
       <main className="flex-1 overflow-auto overflow-x-hidden">
-        <div className="max-w-6xl mx-auto h-full">
+        <div className="space-y-8">
           <div className="w-full aspect-video relative mt-10">
-            <Image
+            <ZoomableImage
               src="/axio.svg"
               alt="transport plan"
-              fill
-              className="object-contain scale-125"
+              initialScale={1.25}
+              className="w-full h-auto"
             />
+          </div>
+
+          <div className="w-full bg-gray-50/50 p-6">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-4 max-w-xl mx-auto">
+              {stats.map((stat, index) => (
+                <StatItem key={index} value={stat.value} label={stat.label} />
+              ))}
+            </div>
           </div>
         </div>
       </main>

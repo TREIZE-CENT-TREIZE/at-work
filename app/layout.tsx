@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <title>@work</title>
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
       <body className={inter.className}>
         <div className="relative min-h-screen overflow-x-hidden">

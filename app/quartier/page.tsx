@@ -1,6 +1,23 @@
 import { GoArrowLeft } from "react-icons/go";
 import Link from "next/link";
-import Image from "next/image";
+import { ZoomableImage } from "@/components/zoomableImage";
+import { StatItem } from "@/components/statItem";
+
+const stats = [
+  { value: "3 200 M²", label: "de commerces de proximité" },
+  { value: "6 HECTARES", label: "d'espaces verts" },
+  { value: "1 LABO", label: "d'innovation handicap handilab" },
+  { value: "1 HÔTEL 4*", label: "H4 Hôtel WYNDHAM PARIS PLEYEL RESORT" },
+  {
+    value: "1 KM",
+    label: "de promenade pietonne sur les berges de Seine et piste cyclable",
+  },
+  { value: "1 NOUVEL ÉCHANGEUR", label: "par l'A86" },
+  { value: "1 CENTRE DE CONFERENCE", label: "de 10 000 m²" },
+  { value: "1 PISCINE", label: "olympique" },
+  { value: "1 PARC", label: "des sports de 117 000 m²" },
+  { value: "LE PETIT STADE", label: "(annexe du Stade de France)" },
+];
 
 export default function Page() {
   return (
@@ -12,14 +29,21 @@ export default function Page() {
         <h1 className="text-lg text-center">Quartier</h1>
       </div>
       <main className="flex-1 overflow-auto overflow-x-hidden">
-        <div className="mx-auto h-full">
+        <div className="space-y-8">
           <div className="w-full aspect-video relative mt-10">
-            <Image
+            <ZoomableImage
               src="/quartier.svg"
               alt="transport plan"
-              fill
-              className="object-contain scale-125"
+              initialScale={1.25}
+              className="w-full h-auto"
             />
+          </div>
+          <div className="w-full bg-gray-50/50 p-6 ">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 max-w-xl mx-auto">
+              {stats.map((stat, index) => (
+                <StatItem key={index} value={stat.value} label={stat.label} />
+              ))}
+            </div>
           </div>
         </div>
       </main>
