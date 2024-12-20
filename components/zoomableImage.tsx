@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import Draggable from "react-draggable";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 type Props = {
@@ -17,6 +18,7 @@ export const ZoomableImage = ({
   className = "",
 }: Props) => {
   const [scale, setScale] = useState(initialScale);
+  const nodeRef = useRef(null);
 
   const zoomIn = () => {
     setScale((prev) => Math.min(prev + 0.25, 2.5));
@@ -29,13 +31,27 @@ export const ZoomableImage = ({
   return (
     <div className={`relative px-20 ${className}`}>
       <div className="w-full aspect-video relative">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-contain transition-transform duration-200"
-          style={{ transform: `scale(${scale})` }}
-        />
+        <Draggable
+          nodeRef={nodeRef}
+          defaultPosition={{ x: 0, y: 0 }}
+          positionOffset={{ x: 0, y: 0 }}
+          grid={[1, 1]}
+          scale={1}
+        >
+          <div
+            ref={nodeRef}
+            className="relative w-full h-full cursor-grab active:cursor-grabbing"
+          >
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              draggable={false}
+              className="object-contain transition-transform duration-200"
+              style={{ transform: `scale(${scale})` }}
+            />
+          </div>
+        </Draggable>
       </div>
 
       <div className="absolute bottom-4 right-4 flex gap-2 drop-shadow-xl rounded-xl">

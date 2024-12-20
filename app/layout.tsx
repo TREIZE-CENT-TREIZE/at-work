@@ -19,6 +19,7 @@ export default function RootLayout({
       <head>
         <title>@work</title>
         <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body className={inter.className}>
         <div className="relative min-h-screen overflow-x-hidden">

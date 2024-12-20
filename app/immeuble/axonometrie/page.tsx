@@ -25,7 +25,7 @@ export default function Page() {
 
       <main className="flex-1 overflow-auto overflow-x-hidden">
         <div className="space-y-8">
-          <div className="w-full aspect-video relative mt-10">
+          <div className="w-full aspect-video relative mt-10 md:mt-20">
             <ZoomableImage
               src="/axio.svg"
               alt="transport plan"
